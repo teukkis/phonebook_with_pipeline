@@ -46,7 +46,7 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "vanhanajanpuhelinkirja" 
           heroku_email: "teemu.varsala@hotmail.com"
-          procfile: "web: node app.js"
+          procfile: "web: node index.js"
           branch: "master"
           rollbackonhealthcheckfailed: true
           healthcheck: "https://vanhanajanpuhelinkirja.herokuapp.com/api/healthcheck"
