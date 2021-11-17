@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "client:dev": "node ./puhelinluettelo/index.js",
     "server:dev": "nodemon ./puhelinluettelo_backend/index.js",
     "build:ui": "cd ./puhelinluettelo && rm -rf ./puhelinluettelo/build && npm run build --prod && cp -r build ../puhelinluettelo_backend",
     "lint": "eslint './**/*.{js,jsx}'"
