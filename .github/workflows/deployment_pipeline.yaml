@@ -21,8 +21,8 @@ jobs:
       - name: install backend dependencies
         run: npm install
 
-      - name: lint server
-        run: npm run lint --prefix ./puhelinluettelo_backend
+#      - name: lint server
+ #       run: npm run lint --prefix ./puhelinluettelo_backend
 
       - name: build client
         run: npm run build:ui
