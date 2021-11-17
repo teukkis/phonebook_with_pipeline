@@ -22,8 +22,9 @@ jobs:
         working-directory: ./puhelinluettelo_backend
         run: npm install
 
-#      - name: lint server
- #       run: npm run lint --prefix ./puhelinluettelo_backend
+      - name: lint server
+        working-directory: ./puhelinluettelo_backend
+        run: npm run lint
 
       - name: build client
         working-directory: ./puhelinluettelo
