@@ -51,5 +51,6 @@ jobs:
           rollbackonhealthcheckfailed: true
           healthcheck: "https://vanhanajanpuhelinkirja.herokuapp.com/api/healthcheck"
         env:
-          VERSION: ${{ github.run_number}} # just to make sure a new version did actually get deployed
+          VERSION: ${{ github.run_number}}
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
           
