@@ -19,13 +19,19 @@ jobs:
           node-version: '12.x'
 
       - name: install backend dependencies
+        working-directory: ./puhelinluettelo_backend
         run: npm install
 
-      #- name: lint server
-      #  run: npm run lint --prefix ./puhelinluettelo_backend
+      - name: lint server
+        working-directory: ./puhelinluettelo_backend
+        run: npm run lint
 
       - name: build client
-        run: npm run build:ui
+        working-directory: ./puhelinluettelo
+        run: | 
+          npm ci
+          npm run build
+          cp -r build ../puhelinluettelo_backend
         
       - name: Bump version and push tag
         if: ${{ github.event_name == 'push' && !contains(github.event.head_commit.message, '#skip')}}
@@ -41,10 +47,12 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "vanhanajanpuhelinkirja" 
           heroku_email: "teemu.varsala@hotmail.com"
-          procfile: "web: node app.js"
-          branch: "master"
+          procfile: "web: node index.js"
+          #branch: "master"
+          appdir: "puhelinluettelo_backend  "
           rollbackonhealthcheckfailed: true
           healthcheck: "https://vanhanajanpuhelinkirja.herokuapp.com/api/healthcheck"
         env:
-          VERSION: ${{ github.run_number}} # just to make sure a new version did actually get deployed
+          VERSION: ${{ github.run_number}}
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
           
