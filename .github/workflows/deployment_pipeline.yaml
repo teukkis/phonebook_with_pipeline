@@ -47,7 +47,8 @@ jobs:
           heroku_app_name: "vanhanajanpuhelinkirja" 
           heroku_email: "teemu.varsala@hotmail.com"
           procfile: "web: node index.js"
-          branch: "master"
+          #branch: "master"
+          appdir: "puhelinluettelo_backend  "
           rollbackonhealthcheckfailed: true
           healthcheck: "https://vanhanajanpuhelinkirja.herokuapp.com/api/healthcheck"
         env:
