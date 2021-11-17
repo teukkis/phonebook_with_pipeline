@@ -1,0 +1,19 @@
+
+
+.notif {
+    color: rgb(41, 32, 32);
+    font-size: 35px;
+    padding: 10px;
+    border-style: double;
+    border-radius: 5px;
+    border-color: darkgrey;
+    background-color: antiquewhite;
+    margin-bottom: 10px;
+    
+}
+
+
+td {
+    text-align: center;
+    padding: 10px;
+}
