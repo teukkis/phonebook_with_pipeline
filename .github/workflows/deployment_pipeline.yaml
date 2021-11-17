@@ -33,13 +33,6 @@ jobs:
           npm run build
           cp -r build ../puhelinluettelo_backend
         
-      - name: Bump version and push tag
-        if: ${{ github.event_name == 'push' && !contains(github.event.head_commit.message, '#skip')}}
-        uses: anothrNick/github-tag-action@1.33.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DEFAULT_BUMP: patch
-
       - name: Deploy to heroku
         if: ${{ github.event_name == 'push' && !contains(github.event.head_commit.message, '#skip') }}
         uses: akhileshns/heroku-deploy@v3.12.12 
@@ -48,7 +41,6 @@ jobs:
           heroku_app_name: "vanhanajanpuhelinkirja" 
           heroku_email: "teemu.varsala@hotmail.com"
           procfile: "web: node index.js"
-          #branch: "master"
           appdir: "puhelinluettelo_backend  "
           rollbackonhealthcheckfailed: true
           healthcheck: "https://vanhanajanpuhelinkirja.herokuapp.com/api/healthcheck"
